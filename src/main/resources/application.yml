@@ -1,0 +1,7 @@
+canary:
+  metrics:
+    - heap.used
+    - mem
+    - mem.free
+    - threads.peak
+  limit: 20.0%
