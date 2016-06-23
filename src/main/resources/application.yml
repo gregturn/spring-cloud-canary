@@ -1,6 +1,5 @@
 canary:
   metrics:
-    - heap.used
     - mem
     - mem.free
     - threads.peak
