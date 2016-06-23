@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css' />
+    <link href='/favicon.png' rel='icon' type='image/png' />
+    <title>Spring Cloud Canary: Automated Canary Analysis</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="built/main.css"/>
+</head>
+<body>
+
+    <nav class="page">
+        <div class="logo">
+            <div class="pivotal-logo"></div>
+            <div class="spinnaker-canary-logo">PCF <b>Automated Canary Analysis</b></div>
+        </div>
+    </nav>
+
+    <header class="page-header wrapper">
+        <h1>Automated Canary Analysis</h1>
+    </header>
+
+    <section class="page-header box box--tiny wrapper">
+        <p>
+            Automatically analyzing your deployed application against its predecessor is critical to the
+            success of your customers.
+        </p>
+
+        <p>
+            With this service, you simply provide a link to your cluster, and it will assess if performance has degraded,
+            giving you back a response in seconds.
+        </p>
+
+        <p>
+            <a th:href="@{'/analyze?cluster=http://gate-gturnquist.cfapps.io/applications/sdrdemo/clusters/development/sdrdemo-production-gturnquist'}">
+                Analyze 'sdrdemo-production-gturnquist'
+            </a>
+        </p>
+
+        <p>
+            If you click on the hyperlink above, you'll get back a JSON document detailing a set of canary checks
+            performed against an application cluster.
+
+            <ul>
+                <li>Itemized list of each check</li>
+                <li>Status result of each check</li>
+                <li>Descriptive message of each check</li>
+                <li>Summary status at the bottom to vote yeah/nay on pipeline deployments</li>
+            </ul>
+        </p>
+
+        <p>
+            Related:
+
+            <ul>
+                <li><a href="http://deck-gturnquist.cfapps.io/#/applications/sdrdemo/clusters">Spinnaker on PWS</a></li>
+                <li><a href="https://github.com/spring-cloud/spring-cloud-canary">Source code for this proof of concept</a></li>
+                <li><a href="http://gate-gturnquist.cfapps.io/applications/sdrdemo/clusters/development/sdrdemo-production-gturnquist">Source of data used by this canary check</a></li>
+            </ul>
+        </p>
+    </section>
+
+
+    <footer class="site-footer">
+        <span>PCF Automated Canary Analysis v1.0.0</span>
+        <span>©2016 Pivotal Software, Inc; All Rights Reserved.</span>
+    </footer>
+
+</body>
+</html>

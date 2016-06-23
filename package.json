@@ -1,0 +1,27 @@
+{
+  "name": "spring-cloud-canary",
+  "version": "1.0.0",
+  "description": "Automated Canary Analysis",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:spring-cloud/spring-cloud-canary.git"
+  },
+  "keywords": [
+    "spring",
+    "cloud",
+    "canary",
+    "analysis",
+    "spinnaker"
+  ],
+  "author": "Greg L. Turnquist",
+  "license": "ASLv2",
+  "bugs": {
+    "url": "https://github.com/spring-cloud/spring-cloud-canary/issues"
+  },
+  "homepage": "https://github.com/spring-cloud/spring-cloud-canary",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "bower": "^1.7.6"
+  }
+}

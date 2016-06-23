@@ -1,0 +1,33 @@
+{
+  "name": "spring-cloud-canary",
+  "version": "1.0.0",
+  "homepage": "https://github.com/spring-cloud/spring-cloud-canary",
+  "authors": [
+    "Greg Turnquist <gturnquist@pivotal.io>"
+  ],
+  "description": "Automated Canary Analysis",
+  "keywords": [
+    "canary",
+    "analysis",
+    "spring",
+    "cloud",
+    "spinnaker"
+  ],
+  "license": "ASL",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "inuit-starter-kit": "^0.2.9",
+    "inuit-widths-responsive": "^0.2.2",
+    "inuit-layout": "^0.3.2",
+    "inuit-tools-widths": "^0.1.4",
+    "inuit-tables": "^0.2.1",
+    "inuit-tabs": "~0.2.1"
+  }
+}

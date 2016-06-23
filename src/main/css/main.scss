@@ -1,0 +1,257 @@
+////////////////////////////////////////////////////////////////////////
+// Pre-sets must be done BEFORE a module is imported. Some of these settings are at the top, while others
+// are right before the import statement.
+////////////////////////////////////////////////////////////////////////
+
+@import "pivotal.palette";
+
+// Spring's palette (found on spring.io)
+$spring-green: #6db33f;
+$spring-black: #34302d;
+$spring-antique-white: #F1F1F1;
+$spring-bright-white: #f9f9f9;
+$spring-white: #eee;
+
+// pivotal.io coloring
+$brand-color: $green-2;
+$brand-highlight: white;
+$brand-highlight2: $spring-antique-white;
+$brand-lowlight: $teal-3;
+
+$inuit-base-background-color: $spring-antique-white;
+
+//$inuit-base-font-size:  12px;
+$inuit-base-line-height:  18px;
+
+////////////////////////////////////////////////////////////////////////
+// Here are the layers of inuit. Each layer needs to have its order preserved, but modules within the same layer
+// can be imported in any order.
+////////////////////////////////////////////////////////////////////////
+
+// Settings layer
+@import "../../../bower_components/inuit-defaults/settings.defaults";
+@import "../../../bower_components/inuit-responsive-settings/settings.responsive";
+
+// Tools layer
+@import "../../../bower_components/inuit-functions/tools.functions";
+@import "../../../bower_components/inuit-mixins/tools.mixins";
+@import "../../../bower_components/inuit-responsive-tools/tools.responsive";
+@import "../../../bower_components/inuit-tools-widths/tools.widths";
+
+// Generic layer
+@import "../../../bower_components/inuit-normalize/generic.normalize";
+@import "../../../bower_components/inuit-box-sizing/generic.box-sizing";
+
+@import "../../../bower_components/inuit-page/base.page";
+
+// Objects layer
+$inuit-enable-layout--large: true;
+@import "../../../bower_components/inuit-layout/objects.layout";
+
+$inuit-enable-table--rows: true;
+$inuit-enable-table--cosy: true;
+@import "../../../bower_components/inuit-tables/objects.tables";
+
+@import "../../../bower_components/inuit-tabs/objects.tabs";
+.#{$inuit-tabs-namespace}tabs {
+  width: unset;
+
+  .#{$inuit-tabs-namespace}tabs__item {
+    border-radius: 5px 5px 0 0;;
+    padding: 8.33333px 12.5px;
+    margin-right: 4px;
+    background: $gray-5;
+    color: $spring-bright-white;
+  }
+
+  .#{$inuit-tabs-namespace}tabs__item:hover, .#{$inuit-tabs-namespace}tabs__item.active {
+    background: $gray-10;
+    color: $green-3;
+    box-shadow: none;
+  }
+
+  .#{$inuit-tabs-namespace}tabs__item a, .#{$inuit-tabs-namespace}tabs__item.active a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+}
+
+
+
+@import "../../../bower_components/inuit-widths/trumps.widths";
+@import "../../../bower_components/inuit-widths-responsive/trumps.widths-responsive";
+
+html {
+  font-family: "source_sans_proregular", "helvetica neue", "helvetica", "sans-serif";
+  font-size: .9em;
+  background-color: $gray-7;
+}
+
+label {
+  font-size: 1.2em;
+}
+
+input {
+  padding: 6.25px;
+  border-radius: 3px;
+  border: 1px solid $gray-5;
+}
+
+label, input {
+  vertical-align: middle;
+}
+
+// Dress up the top row of a "page"
+// Add a small amount of padding at the bottom of a "page"
+$inuit-base-spacing-unit--tiny: round($inuit-base-spacing-unit / 8);
+.page {
+  color: $brand-highlight;
+  background-color: $navy-1;
+  width: 100%;
+  margin-top: 0em;
+  padding-bottom: $inuit-base-spacing-unit--tiny;
+}
+
+.page-header {
+}
+
+// Wrap a given block with insets so it isn't pushed to the edge of the browser
+.wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.logo .pivotal-logo {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 15px;
+  background-image: url("/logo-pivotal.png");
+  background-repeat: no-repeat;
+  background-color: $green-3;
+  background-size: 50%;
+  background-position: 50% 50%;
+}
+
+.logo .spinnaker-canary-logo {
+  position: absolute;
+  display: inline-block;
+  height: 19px;
+  left: 80px;
+  top: 32px;
+}
+
+.content__container {
+  margin: 0;
+  position: relative;
+  height: 1000px; // TODO: Replace this by styling first all white, then laying a header panel above it
+  background: $gray-10;
+}
+
+.content {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.content.active {
+  opacity: 1;
+  background: $gray-10;
+  z-index: 1;
+}
+
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: $gray-6;
+  height: 40px;
+  padding: .75em 1em;
+  z-index: 5;
+}
+
+.control-group {
+  padding: 6px;
+}
+
+// Fine tune the bar at the top, so it shrinks vertically on portable devices
+h1 {
+  @include media-query(portable) {
+    margin: 0.1em 0;
+  }
+  font-weight: normal;
+}
+
+table {
+  border-color: grey;
+}
+
+.table td.row-title {
+  min-width: 150px;
+  color: $green-3;
+
+}
+
+// Add striping to odd rows of a table (not header)
+tbody tr:nth-child(odd) {
+  background-color: $spring-bright-white;
+}
+
+/*Classes for creating dialogs*/
+
+.modalDialog {
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 99999;
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+
+.modalDialog:target {
+  opacity:1;
+  pointer-events: auto;
+}
+
+.modalDialog > div {
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+  background: #fff;
+  background: -moz-linear-gradient(#fff, #999);
+  background: -webkit-linear-gradient(#fff, #999);
+  background: -o-linear-gradient(#fff, #999);
+}
+
+.close {
+  background: #606061;
+  color: #FFFFFF;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: #00d9ff; }
