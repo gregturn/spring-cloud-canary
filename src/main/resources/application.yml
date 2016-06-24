@@ -3,4 +3,4 @@ canary:
     - mem
     - mem.free
     - threads.peak
-  limit: 20.0%
+  limit: 50.0%

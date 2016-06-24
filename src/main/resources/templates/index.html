@@ -34,9 +34,18 @@
         </p>
 
         <p>
-            <a th:href="@{'/analyze?cluster=http://gate-gturnquist.cfapps.io/applications/sdrdemo/clusters/development/sdrdemo-production-gturnquist'}">
-                Analyze 'sdrdemo-production-gturnquist'
-            </a>
+            <ul>
+                <li>
+                    <a th:href="@{/analyze(cluster='http://gate-gturnquist.cfapps.io/applications/sdrdemo/clusters/development/sdrdemo-production-gturnquist')}">
+                        Analyze 'sdrdemo-production-gturnquist'
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/analyze(cluster='http://gate-gturnquist.cfapps.io/applications/sdrdemo/clusters/development/sdrdemo-production-gturnquist',statusOnly='true')}">
+                        Analyze 'sdrdemo-production-gturnquist' and just return the status
+                    </a>
+                </li>
+            </ul>
         </p>
 
         <p>
@@ -56,7 +65,7 @@
 
             <ul>
                 <li><a href="http://deck-gturnquist.cfapps.io/#/applications/sdrdemo/clusters">Spinnaker on PWS</a></li>
-                <li><a href="https://github.com/spring-cloud/spring-cloud-canary">Source code for this proof of concept</a></li>
+                <li><a href="https://github.com/gregturn/spring-cloud-canary">Source code for this proof of concept</a></li>
                 <li><a href="http://gate-gturnquist.cfapps.io/applications/sdrdemo/clusters/development/sdrdemo-production-gturnquist">Source of data used by this canary check</a></li>
             </ul>
         </p>

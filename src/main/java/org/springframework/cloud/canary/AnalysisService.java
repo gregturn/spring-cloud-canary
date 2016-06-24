@@ -55,7 +55,7 @@ public class AnalysisService {
 		this.canaryCriteria = canaryCriteria;
 	}
 
-	public Analysis analyze(URI cluster) {
+	public Analysis analyze(URI cluster, boolean statusOnly) {
 
 		ClusterDetails clusterDetails = restTemplate.getForObject(cluster, ClusterDetails.class);
 
@@ -108,9 +108,15 @@ public class AnalysisService {
 				})
 				.collect(Collectors.toList());
 
-		return CompositeAnalysis.builder()
+		final CompositeAnalysis compositeAnalysis = CompositeAnalysis.builder()
 				.analysisList(results)
 				.build();
+
+		if (statusOnly) {
+			return () -> compositeAnalysis.getStatus();
+		} else {
+			return compositeAnalysis;
+		}
 
 	}
 
